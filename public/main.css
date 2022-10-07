@@ -65,6 +65,14 @@
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+[data-theme="dark"] {
+  --primary-color: #9A97F3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --backgroundColor: #161625;
+  --heading-color: #818cab;
+}
+
 
 html {
   font-size: 112.5%;
@@ -129,6 +137,89 @@ ul {
 a {
   text-decoration: none;
 }
+
+/* ********Navbar addition******* */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary-1000);
+  padding: 10px;
+  transition: all 0.4ms linear;
+}
+.navbar .topBar a.icon{
+  display: none;
+}
+.navbar h1{
+  font-size: 25px;
+  color: white;
+}
+.navbar .side a{
+  color: white;
+  text-decoration: none;
+}
+header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.navbar .side{
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content:space-around;
+}
+.theme-switch {
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 22px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 20px;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-400);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
 /*************
      Buttons 
 *************/
@@ -245,6 +336,7 @@ textarea {
     border-top-right-radius: var(--borderRadius);
     border-bottom-right-radius: var(--borderRadius);
   }
+
 }
 form > :first-child {
   margin-top: 0;
@@ -443,4 +535,34 @@ form > :last-child {
 .single-task-form .form-alert {
   text-align: center;
   margin-top: 1rem;
+}
+.mainsection{
+  padding: 100px;
+  width: 100%;
+}
+
+@media screen and (max-width:600px){
+    /* ********navbar ******** */
+    .navbar{
+      height: 8vh;
+    }
+    .navbar .topBar{
+      display: flex;
+      justify-content: space-between;
+    }
+    .navbar .topBar a.icon{
+      display: block;
+    }
+    header{
+      flex-direction: column;
+    }
+    .responsive{
+      height: 100%;
+    }
+    .navbar .side{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
 }
